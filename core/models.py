@@ -174,7 +174,7 @@ class Prestador(models.Model):
     filial_nome = models.CharField(max_length=50, default="7004-Franca")
 
     def __str__(self):
-        return self.nome_prestador.nome_prestador  # Retornando FK
+        return self.nome_prestador  # Retornando FK
 
     class Meta:
         verbose_name = 'Prestador'
