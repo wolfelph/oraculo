@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-r@flen-y!#v7sd%dao1e8%arh!5lo71jgjjwdxfmdq9o2$xcho
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
+    'social_django',
     'core',
 ]
 
@@ -63,6 +65,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # ADICIONOU DAQUI PRA BAIXO
+                # Para que através do social django possamos usar no template os dados que vierem
+
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -119,6 +127,36 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    # Apenas se voce quiser manter a autenticacao padrao do django, aquela criando usuario e super user
+    'django.contrib.auth.backends.ModelBackend',
+]
+# Configuração
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '28416669725-k3trefg262i55ftob4su1i4ct1lcojql.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'OW0hPA0wtAzavjuAw1Wl_Agd'
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
+
+
+SECURE_HSTS_SECONDS = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+X_FRAME_OPTIONS = 'DENY'
+
+# SECURE_SSL_REDIRECT = True
+# Não roda mais localmente, já redireciona para HTTPS
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

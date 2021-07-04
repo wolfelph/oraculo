@@ -1,0 +1,26 @@
+{% load static %}
+{% load bootstrap4 %}
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=devide.width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Django Social</title>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div>
+            <h1 class="text-white text-center">{% block title %}{% endblock %}</h1>
+            <div class="card p-5">
+              {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>
