@@ -1,6 +1,4 @@
 {% load static %}
-<!-- LAYOUTS FIXOS NO SITE, NAO MEXER CASO NAO QUEIRA QUE ESTEJA EM TODAS AS PAGINAS -->
-
 
 <!doctype html>
 <html lang="pt-br">
@@ -19,12 +17,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
     <!-- ARQUIVOS DE CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/css_site.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/light-bootstrap-dashboard.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/mdb.min.css' %}"/>
-
-
 
 
 </head>
@@ -126,11 +121,7 @@
             </nav>
             <!-- FINAL DA NAVBAR -->
 
-
-            <!-- INICIA CONTEUDO NO CENTRO DA PÁGINA -->
-            {% block content %} {% endblock %}
-
-            <!-- INICIO DO FOOTER
+            <!-- INICIO DO FOOTER -->
             <footer class="footer">
                 <div class="container-fluid">
                     <nav>
@@ -143,7 +134,7 @@
                         </p>
                     </nav>
                 </div>
-            </footer>-->
+            </footer>
              <!-- FIM DO FOOTER -->
         </div>
     </div>
