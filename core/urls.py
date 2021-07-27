@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
-from core.views import IndexView, LoginView, CadastroView, HomeView
+from core.views import IndexView, LoginView, CadastroView, HomeView, TesteView
 
 urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
@@ -10,4 +10,5 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('cadastro/', CadastroView.as_view(), name='cadastro'),
     path('home/', HomeView.as_view(), name='index'),
+    path('teste/', TesteView.as_view(), name='teste'),
 ]

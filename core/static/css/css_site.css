@@ -1,3 +1,4 @@
+/*-- Classe dos selects --*/
 .select-cadastro {
     display: inline-block;
     width: 40%;
@@ -16,4 +17,77 @@
     -moz-appearance: none;
     appearance: none;
 }
+/*-- fim da Classe dos selects --*/
 
+/*-- Container Geral --*/
+.container-fluid
+    width:100%;
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-wrap:wrap;
+    -ms-flex-wrap:nowrap;
+    flex-wrap:wrap;
+    -ms-flex-align:center;
+    align-items:center;
+    -ms-flex-pack:justify;
+    justify-content:space-between;
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto;
+    @media (min-width:768px);
+/*-- Container Geral --*/
+
+/*-- linha --*/
+.row
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-wrap:wrap;
+    flex-wrap:wrap;
+    margin-right:-15px;
+    margin-left:-15px;
+/*-- linha --*/
+
+/*-- wrapper --*/
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+    top: 0;
+    height: 100vh;
+    left: 0;
+    background-color: white;
+
+}
+/*-- wrapper --*/
+
+/*-- nav-show --*/
+.nav-show .wrapper {
+    left: 0;
+    -webkit-transform: translate3d(-260px, 0, 0);
+    -moz-transform: translate3d(-260px, 0, 0);
+    -o-transform: translate3d(-260px, 0, 0);
+    -ms-transform: translate3d(-260px, 0, 0);
+    transform: translate3d(-260px, 0, 0);
+/*-- nav-show --*/
+
+
+/* NAVBAR */
+body,
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+}
+
+.sidebar,
+.main-panel {
+    overflow: auto;
+    max-height: 100%;
+    height: 100%;
+    -webkit-transition-property: top, bottom;
+    transition-property: top, bottom;
+    -webkit-transition-duration: .2s, .2s;
+    transition-duration: .2s, .2s;
+    -webkit-transition-timing-function: linear, linear;
+    transition-timing-function: linear, linear;
+    -webkit-overflow-scrolling: touch;
+}

@@ -1,5 +1,6 @@
 from django.db import models
 
+from core.choices import *
 
 class Filial(models.Model):
     filial_nome = models.CharField(max_length=50, default="7004-Franca")
@@ -11,13 +12,7 @@ class Filial(models.Model):
 
 
 class Estoque(models.Model):
-    tipo_CHOICES = (
-        ('1', 'Devol. Desligamento'),
-        ('2', 'Devol. Substituição'),
-        ('3', 'Novos'),
-        ('4', 'DQS'),
-        ('5', 'Imobilizado'),
-    )
+
     tipo_estoque = models.CharField('Tipo de Estoque', max_length=50, choices=tipo_CHOICES)
     filial_estoque = models.ForeignKey('Filial', on_delete=models.CASCADE)
 
@@ -59,40 +54,6 @@ class Avaria(models.Model):
 
 
 class Equipamento(models.Model):
-    modelo_CHOICES = (
-        ('1', 'Lenovo Thinkpad E490'),
-        ('2', 'Lenovo Thinkpad E14'),
-        ('3', 'Dell 3410'),
-        ('4', 'Dell 3480'),
-        ('5', 'Dell 3490'),
-    )
-    processador_CHOICES = (
-        ('1', 'i3'),
-        ('2', 'i5'),
-        ('3', 'i7'),
-        ('4', 'i9'),
-        ('5', 'M1'),
-    )
-    memoria_CHOICES = (
-        ('1', '4GB'),
-        ('2', '8GB'),
-        ('3', '12GB'),
-        ('4', '16GB'),
-        ('5', '32GB'),
-    )
-    entrega_CHOICES = (
-        ('1', 'Retirada'),
-        ('2', 'Correios'),
-        ('3', 'Transportadora'),
-    )
-    status_CHOICES = (
-        ('1', 'Aguardando separação'),
-        ('2', 'Preparando'),
-        ('3', 'Falta info do user'),
-        ('4', 'Aguardando retirada'),
-        ('5', 'Enviado a outra filial'),
-        ('6', 'Concluído'),
-    )
 
     eq_disponivel = models.BooleanField()
     filial_nome = models.CharField(max_length=50, default="7004-Franca")
@@ -143,12 +104,7 @@ class EntradaNovos(Equipamento):
 
 
 class Motivo(models.Model):
-    motivo_CHOICES = (
-        ('1', 'Descarte'),
-        ('2', 'Manutenção'),
-        ('3', 'Substituição'),
-        ('4', 'Onboarding'),
-    )
+
     motivo_saida = models.CharField('Motivo Saída', max_length=50, choices=motivo_CHOICES)
     filial_nome = models.CharField(max_length=50, default="7004-Franca")
 

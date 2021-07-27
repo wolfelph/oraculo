@@ -17,3 +17,5 @@ class CadastroView(TemplateView):
 class HomeView(TemplateView):
     template_name = 'index.html'
 
+class TesteView(TemplateView):
+    template_name = 'teste.html'
